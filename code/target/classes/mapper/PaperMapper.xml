@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.SosoDao">
+    <resultMap type="MobileCard" id="sosoResultMap" >
+        <id property="cardNumber" column="CardNumber"/>
+        <result property="userName" column="UserName"/>
+        <result property="passWord" column="PassWord"/>
+        <result property="serPackage" column="SerPackage"/>
+        <result property="consumAmount" column="ConsumAmount"/>
+        <result property="money" column="Money"/>
+        <result property="realTalkTime" column="RealTalkTime"/>
+        <result property="realSMSCount" column="RealSMSCount"/>
+        <result property="realFlow" column="RealFlow"/>
+    </resultMap>
+
+    <insert id="userRegister" parameterType="MobileCard">
+        INSERT INTO MobileCardMYSQL(CardNumber,UserName,PassWord,SerPackage,ConsumAmount,Money, RealTalkTime, RealSMSCount, RealFlow) VALUE (#{cardNumber},#{userName}, #{passWord}, #{serPackage}, #{consumAmount},#{money}, #{realTalkTime}, #{realSMSCount}, #{realFlow})
+    </insert>
+
+    <select id="queryAllUser" resultMap="sosoResultMap">
+        SELECT * FROM MobileCardMYSQL
+    </select>
+</mapper>
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper-->
+<!--        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"-->
+<!--        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">-->
+<!--<mapper namespace="com.dao.PaperDao">-->
+<!--    <resultMap type="Paper" id="paperResultMap" >-->
+<!--        <id property="paperId" column="paper_id"/>-->
+<!--        <result property="paperName" column="name"/>-->
+<!--        <result property="paperNum" column="number"/>-->
+<!--        <result property="paperDetail" column="detail"/>-->
+<!--    </resultMap>-->
+<!--    <insert id="addPaper" parameterType="Paper">-->
+<!--        INSERT INTO paper(paper_id,name,number,detail) VALUE (#{paperId},#{paperName}, #{paperNum}, #{paperDetail})-->
+<!--    </insert>-->
+
+<!--    <delete id="deletePaperById" parameterType="long">-->
+<!--        DELETE FROM paper WHERE paper_id=#{paperID}-->
+<!--    </delete>-->
+
+<!--    <update id="updatePaper" parameterType="Paper">-->
+<!--        UPDATE paper-->
+<!--        SET NAME = #{paperName},NUMBER = #{paperNum},detail = #{paperDetail}-->
+<!--        WHERE  paper_id = #{paperId}-->
+<!--    </update>-->
+
+<!--    <select id="queryById" resultType="Paper" parameterType="long">-->
+<!--        SELECT paper_id,name,number,detail-->
+<!--        FROM paper-->
+<!--        WHERE paper_id=#{paperId}-->
+<!--    </select>-->
+<!--    <select id="queryAllPaper" resultMap="paperResultMap">-->
+<!--        SELECT paper_id,name,number,detail-->
+<!--        FROM paper-->
+<!--    </select>-->
+
+<!--</mapper>-->
+
+
+
+
